@@ -1,0 +1,39 @@
+<div class="row mt-3">
+  <div class="col-lg-6">
+    <h3>Comments List</h3>
+  </div>
+  <div class="col-lg-6">
+    <button class="btn btn-primary float-end" routerLink="/add">New Comment</button>
+  </div>
+</div>
+<table class="table table-hover mt-3" *ngIf="commentsList.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Creator</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let comment of commentsList">
+        <td>
+          <a routerLink="/view/1">
+            {{comment.title}}
+          </a>
+        </td>
+        <td>{{comment.creator}}</td>
+        <td>{{comment.creationDate | date: 'dd/MM/yyyy'}}</td>
+        <td style="width: 10%;">
+          <button class="btn btn-primary btn-sm float-end">Edit</button>
+        </td>
+        <td style="width: 10%;">
+          <button class="btn btn-danger btn-sm float-end">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+<div *ngIf="commentsList.length == 0" class="row mt-5">
+  <h5>there are no comments to show</h5>
+</div>
